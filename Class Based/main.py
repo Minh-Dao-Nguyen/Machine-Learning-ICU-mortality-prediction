@@ -43,6 +43,10 @@ def main():
     model = Model(args)  # you can add arguments as needed
     model.fit(X, y)
 
+    y_pred = model.predict_proba(X_test)[:,1]
+    rocauc = roc_auc_score(y_test, y_pred)
+    print(rocauc)
+
 
 if __name__ == "__main__":
     main()
